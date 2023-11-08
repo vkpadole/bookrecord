@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+{{#if message}}
+    <p id="alertMessage">{{message}}</p>
+    <script>
+        var alertMessage = document.getElementById('alertMessage');
+        // Check if the message element exists
+        if (alertMessage) {
+            // Hide the message after 10 seconds (10000 milliseconds)
+            setTimeout(function() {
+                alertMessage.style.display = 'none';
+            }, 10000);
+        }
+    </script>
+{{/if}}
+<h2>Book Record</h2>
+<a href="/book/newbook">Add New Book Details</a>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Summary</th>
+    <th>Action</th>
+  </tr>
+  {{#each data}}
+  <tr>
+    <td>{{this.title}}</td>
+    <td>{{this.author}}</td>
+    <td>{{this.summary}}</td>
+    <td><a href="/book/bookupdate/{{this._id}}">Edit</a> | <a href="/book/bookdelete/{{this._id}}">Delete</a></td>
+  </tr>
+  {{/each}}
+</table>
+
+</body>
+</html>
+
