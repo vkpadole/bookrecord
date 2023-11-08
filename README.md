@@ -9,3 +9,4 @@ View details of a specific book by its ID
 Update a book's details
 Delete a book
 Database: Use MongoDB for storing book data.
+Technology used : node.js, express framework, Template Engine : hbs, Database : mongodb
